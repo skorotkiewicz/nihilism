@@ -25,7 +25,8 @@ Inspired by the philosophical depth of games like **Undertale**, **Doki Doki Lit
 ### Client (React + Vite)
 - Atmospheric dark void aesthetic
 - Visual novel-style narrative interface
-- Real-time updates
+- **Character portraits** that shift with mood
+- **Ambient music** that responds to nihilism score
 - Memory panel showing persistent state
 
 ## Quick Start
@@ -77,6 +78,10 @@ cd client && bun run build
 | `/api/game/{id}/start` | POST | Start/continue narrative |
 | `/api/game/{id}/choice` | POST | Make a choice |
 | `/api/game/{id}/reset` | POST | Reset the loop |
+| `/api/game/save/{id}` | POST | Save game to disk |
+| `/api/game/load/{id}` | GET | Load game from disk |
+| `/api/game/list` | GET | List all saved games |
+| `/api/game/{id}/ending` | GET | Check for ending |
 
 ## Configuration
 
@@ -106,6 +111,22 @@ Like Flowey in Undertale, the game remembers:
 
 ### The Loop
 Each loop can be reset manually or triggered by narrative events. The world forgets, but the narrator remembers everything.
+
+### Multiple Endings
+Reach one of 7 unique endings based on your cumulative choices:
+
+| Ending | Condition |
+|--------|-----------|
+| **Void Embrace** | High nihilism score, 30+ dark choices |
+| **Tiny Perfect Things** | Found meaning despite darkness (-60 score, 25+ light) |
+| **Just You** | 15+ loops, 50+ choices, balanced score |
+| **Transcendence** | Broke free through positive choices (-80 score) |
+| **The Watcher** | Observed many loops without commitment |
+| **Acceptance** | Moderate everything across 25+ loops |
+| **The Middle Path** | Perfect balance of dark and light (rare) |
+
+### Save System
+Games auto-save every 3 choices and on loop reset. Files stored in `data/players/`.
 
 ## Themes from the Source Material
 

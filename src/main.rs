@@ -1,6 +1,8 @@
 mod config;
+mod endings;
 mod game;
 mod llm;
+mod persistence;
 mod routes;
 
 use anyhow::Result;
