@@ -2,7 +2,7 @@
 
 > *"Despite everything, it's still you."*
 
-A **2D time loop game** built with a Rust server and React frontend, featuring **infinite narrative paths** powered by an **OpenAI-compatible LLM API**.
+A **time loop game** built with a Rust server and React frontend, featuring **infinite narrative paths** powered by an **OpenAI-compatible LLM API**.
 
 ## Concept
 
@@ -14,82 +14,18 @@ Inspired by the philosophical depth of games like **Undertale**, **Doki Doki Lit
 - **Infinite paths** - LLM-driven narrative branches that adapt to your choices
 - **The Mirror Test** - *"Despite everything, it's still you"*
 
-## Architecture
-
-### Server (Rust)
-- **Axum** web framework with WebSocket support
-- **OpenAI-compatible API** integration for dynamic storytelling
-- **Persistent state** management across loops
-- Game mechanics: nihilism score, dark/light choices, key memories
-
-### Client (React + Vite)
-- Atmospheric dark void aesthetic
-- Visual novel-style narrative interface
-- **Character portraits** that shift with mood
-- **Ambient music** that responds to nihilism score
-- Memory panel showing persistent state
-
 ## Quick Start
 
-### 1. Configure LLM API
-
-Set environment variables for your OpenAI-compatible API:
-
-```bash
-export LLM_BASE_URL="http://localhost:8080/v1"  # Your LLM endpoint
-export LLM_API_KEY="sk-your-api-key"            # API key
-export LLM_MODEL="gpt-4"                        # Model name
-```
-
-### 2. Run the Server
-
-```bash
-./nihilism
-```
-
-The server starts on port 3001 by default.
-
-### 3. Run the Client (Development)
-
-```bash
-cd client
-bun run dev
-```
-
-Open http://localhost:3000 to play.
-
-### 4. Build for Production
-
-```bash
-# Build server
-cargo build --release
-
-# Build client
-cd client && bun run build
-```
-
----
-
-## 🐳 Docker Quick Start
+The fastest way to get started is using Docker:
 
 ```bash
 docker-compose up -d
 ```
 
-Open **http://localhost:8080**
+Open **http://localhost:8080** to begin your loop.
 
-### Docker Management
-
-```bash
-docker-compose pull       # Update image
-docker-compose logs -f    # View logs
-docker-compose down       # Stop
-```
-
----
-
-
-For detailed information on API endpoints and configuration, please refer to the [API Documentation](API.md).
+- For manual installation and Docker development instructions, see [INSTALL.md](INSTALL.md).
+- For detailed information on API endpoints and configuration, please refer to the [API Documentation](API.md).
 
 ## Game Mechanics
 
