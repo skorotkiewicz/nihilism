@@ -44,7 +44,7 @@ export LLM_MODEL="gpt-4"                        # Model name
 ### 2. Run the Server
 
 ```bash
-LLM_BASE_URL="http://localhost:8080/v1" ./nihilism
+./nihilism
 ```
 
 The server starts on port 3001 by default.
@@ -68,30 +68,28 @@ cargo build --release
 cd client && bun run build
 ```
 
-## API Endpoints
+---
 
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/api/health` | GET | Health check |
-| `/api/game/new` | POST | Create new game session |
-| `/api/game/{id}` | GET | Get game state |
-| `/api/game/{id}/start` | POST | Start/continue narrative |
-| `/api/game/{id}/choice` | POST | Make a choice |
-| `/api/game/{id}/reset` | POST | Reset the loop |
-| `/api/game/save/{id}` | POST | Save game to disk |
-| `/api/game/load/{id}` | GET | Load game from disk |
-| `/api/game/list` | GET | List all saved games |
-| `/api/game/{id}/ending` | GET | Check for ending |
+## 🐳 Docker Quick Start
 
-## Configuration
+```bash
+docker-compose up -d
+```
 
-| Variable | Default | Description |
-|----------|---------|-------------|
-| `HOST` | `0.0.0.0` | Server bind address |
-| `PORT` | `3001` | Server port |
-| `LLM_BASE_URL` | `http://localhost:8080/v1` | LLM API base URL |
-| `LLM_API_KEY` | `sk-none` | LLM API key |
-| `LLM_MODEL` | `gpt-4` | LLM model name |
+Open **http://localhost:8080**
+
+### Docker Management
+
+```bash
+docker-compose pull       # Update image
+docker-compose logs -f    # View logs
+docker-compose down       # Stop
+```
+
+---
+
+
+For detailed information on API endpoints and configuration, please refer to the [API Documentation](API.md).
 
 ## Game Mechanics
 

@@ -1,0 +1,17 @@
+services:
+  nihilism:
+    build: .
+    image: skorotkiewicz/nihilism:latest
+    container_name: nihilism
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data:/app/data
+    environment:
+      - HOST=0.0.0.0
+      - PORT=3001
+      - LLM_BASE_URL=http://192.168.0.124:8888/v1
+      - LLM_API_KEY=sk-none
+      - LLM_MODEL=gpt-4-turbo
+
